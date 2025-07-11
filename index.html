@@ -1,118 +1,431 @@
+<!-- HELLO
+-
+DevFolio is a minimal, clean, lightweight and fully responsive template for Devlopers!
+Created by Anil Seervi.
+-
+GitHub repo: https://github.com/AnilSeervi/DevFolio
+README: https://github.com/AnilSeervi/DevFolio/blob/master/README.md
+-
+Have fun creating your portfolio on this template!!! -->
+
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Seetharaman Radhakrishnan</title>
-  <link rel="stylesheet" href="style.css">
-<link
-  rel="stylesheet"
-  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
-/>
-</head>
-<body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com" />
+    <link rel="stylesheet" href="./css/main.css" />
+
+    <!-- Title: add your Portfolio websites's title here -->
+    <title>[Seetharaman Radhakrishnan] | Developer</title>
+
+    <!-- Add some coding keywords below, Ex: (javascript, yourusername, etc) -->
+    <meta name="keywords" content="[username], [name], skill" />
+
+    <!-- Improve your SEO by adding a small descrption of you -->
+    <meta name="description" content="[Your name here] | Developer" />
+
+    <!-- Add a your png Logo to the assets folder and change the href attr accordingly  -->
+    <link rel="icon" type="image/png" href="./assets/devfolio-logo.png" />
+
+    <!-- Add your primary-theme color for the value of content -->
+    <meta name="theme-color" content="#36d1dc" />
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <!-- Fill content with the URL of this portfolio you'll host -->
+    <meta property="og:url" content="https://devfolio.js.org/" />
+    <!-- Fill content with the title of your portfolio(Recommended to use what you put in <title> tag) -->
+    <meta property="og:title" content="[Seetharaman Radhakrishnan] | Developer" />
+    <!-- Give a short description that'll show up when you/someone shares your portfolio on different platform -->
+    <meta property="og:description" content="Made using DevFolio Template" />
+    <!-- Add a thumbnail image in assets folder and fill the content attr with URL to that thumbnail 
+      so that a thumbnail image of your portfolio is shown while shared on other platform -->
+    <meta
+      property="og:image"
+      content="https://devfolio.js.org/assets/devfolio.png"
+    />
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <!-- Again fill content attr with the URL of this portfolio you'll host -->
+    <meta property="twitter:url" content="https://devfolio.js.org" />
+    <!-- Recommended to use the same text used within <title> element -->
+    <meta property="twitter:title" content="[Your name here] | Developer" />
+    <!-- short description that shows up while your portfolio is shared -->
+    <meta
+      property="twitter:description"
+      content="Made using DevFolio Template"
+    />
+    <!-- Fill content with the URL to the thumbnail image that you'll put in the assets folder -->
+    <meta
+      property="twitter:image"
+      content="https://anilseervi.vercel.app/assets/devfolio.png"
+    />
+
+    <!-- link tags -->
+    <link rel="preload" as="style" href="./css/main.css" />
+    <link rel="stylesheet" href="./css/main.css" />
+
+    <!-- FontAwesome Icons link -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css"
+      integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <script defer src="./javascript/scrollreveal.min.js"></script>
+    <script
+      defer
+      type="text/javascript"
+      src="./javascript/scrollveal.js"
+    ></script>
+
+    <!-- Remove Google Analytics once you have your portfolio website set-up -->
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=UA-122228201-4"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || []
+      function gtag() {
+        dataLayer.push(arguments)
+      }
+      gtag("js", new Date())
+
+      gtag("config", "UA-122228201-4")
+    </script>
+    <!-- End of Google Analytics -->
+  </head>
   <body>
-  <div class="top-right-photo">
-    <img src="images/myphoto.png" alt="Photo" />
-  </div>
-  <header>
-    <div class="info">
-      <h1>Seetharaman Radhakrishnan</h1>
-      <p>AI & Machine Learning Graduate | Python Developer</p>
-  <main>
-    <section>
-      <h2>Summary</h2>
-      <p>AI and Machine Learning graduate with strong Python programming, data analysis, and deep learning skills. Proficient in designing and deploying machine learning pipelines, building interactive apps, and integrating APIs. Experienced in NLP, signal processing, and image analysis. Passionate about solving real-world problems through applied AI, with multiple self-driven projects hosted on GitHub.</p>
+    <!-- Hero Section -->
+    <div id="hero">
+      <section class="container">
+        <h1 class="hero-title">
+          Hi, my name is <span class="text-color-main name">Seetharaman Radhakrishnan</span>
+          <br />
+          I'm the Developer.
+        </h1>
+        <p class="hero-cta">
+          <a class="cta-btn cta-btn--hero" href="#projects">My Projects</a>
+        </p>
+      </section>
+      <a href="#PROJECTS" class="scroll-down-link" aria-label="scroll-down">
+        <div class="scroll-down"></div
+      ></a>
+    </div>
+    <!-- /END Hero Section -->
+
+    <!-- About Section -->
+    <section id="about">
+      <div class="container">
+        <h2 class="section-title">About Me</h2>
+        <div class="row about-wrapper">
+          <div class="about-wrapper__image">
+            <img
+              class="img-fluid"
+              src="./assets/profile2.png"
+              alt="Profile Image"
+              width="450"
+              height="350"
+            />
+          </div>
+          <div class="about-wrapper__info">
+            <p class="about-wrapper__info-text">
+              I’m Seetharaman Radhakrishnan, a Data Scientist, Python Developer, and AI/ML Engineer based in the UK, with a Master’s in Artificial Intelligence from Sheffield Hallam University. 
+              I specialize in building machine learning models, interactive Python applications, and end-to-end data pipelines.
+              With a strong foundation in deep learning, computer vision, and NLP, I’ve worked on diverse projects—from academic performance prediction to generative image reconstruction—blending research and real-world problem solving.
+
+            </p>
+            <p class="about-wrapper__info-text">
+              I’m passionate about using technology to create practical, impactful solutions. 
+              My portfolio includes a range of self-driven projects hosted on GitHub, showcasing skills in Python, Streamlit, TensorFlow, and more. 
+              I’m always eager to learn, collaborate, and take on global opportunities where I can contribute to meaningful AI innovation.
+            </p>
+            <p class="about-wrapper__info-text">
+              Feel Free to Reach out!
+            </p>
+            <span class="about-wrapper__cta">
+              <a href="https://github.com/Seetharamanrs" class="cta-btn cta-btn--resume">View My GitHub</a>
+            </span>
+          </div>
+        </div>
+      </div>
     </section>
+    <!-- /END About Section -->
 
-    <section>
-      <h2>Experience</h2>
-      <h3>Sainsbury’s – Online Assistant</h3>
-      <p><em>May 2024–Present, Sheffield, UK</em></p>
-      <ul>
-        <li>Ensured order accuracy and quality by selecting and preparing customer orders.</li>
-        <li>Provided customer-centric service, accommodating specific product requests and fostering teamwork in a fast-paced setting.</li>
-      </ul>
+    <!--Projects Section-->
+    <section id="projects">
+      <div class="container">
+        <div class="project-wrapper">
+          <h2 class="section-title dark-blue-text">Projects</h2>
 
-      <h3>Independent Developer – AI & Python Projects</h3>
-      <p><em>Sep 2024–Present, Sheffield, UK</em></p>
-      <ul>
-        <li>Built end-to-end Python apps for math utilities, data tools, and games using OOP and Streamlit.</li>
-        <li>Developed CLI and GUI tools for statistics, unit conversion, matrix operations, and cryptography.</li>
-        <li>Created a Student Performance Analytics project using UCI ML dataset; applied Random Forest and Logistic Regression to identify academic performance indicators.</li>
-        <li>Published well-documented code with Jupyter notebooks and GitHub repositories.</li>
-      </ul>
+          <!-- Each .row is a project -->
+          <article class="row">
+            <div class="project-wrapper__text">
+              <h3 class="project-wrapper__text-title">Superstore Sales Analysis</h3>
+              <p class="project-wrapper__text-info">
+                Architected an interactive analytics dashboard and data pipeline leveraging Streamlit, Pandas, Seaborn, and scikit-learn to analyze historical retail sales data. Implemented KMeans clustering for customer segmentation, evaluated clusters using F1-score and precision, and visualized them using PCA. Enabled dynamic filtering by year and region through real-time KPIs and charts.
+              </p>
+              <div class="project-wrapper__tech">
+                <span>Python</span>
+                <span>Jupyter Notebook</span>
+                <span>Streamlit</span>
+                <span>Matplot</span>
+                <span>Seaborn</span>
+              </div>
+              <div class="project-wrapper__text-btns">
+                <!-- <a
+                  href="#"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="cta-btn cta-btn--hero cta-btn--projects"
+                  >See Live</a
+                > -->
+                <a href="https://github.com/Seetharamanrs/SuperStore-sales-dashboard" target="_blank" class="cta-btn text-color-main"
+                  >Source Code</a
+                >
+              </div>
+            </div>
+
+            <div class="project-wrapper__image">
+              <a href="#" target="_blank" rel="noopener noreferrer">
+                <div class="thumbnail rounded">
+                  <img
+                    src="./assets/projects/superstore.png"
+                    class="img-fluid"
+                    alt="Project Image"
+                    width="1366"
+                    height="767"
+                  />
+                </div>
+              </a>
+            </div>
+          </article>
+          <!-- /END Project -->
+
+          <!-- Each .row is a project -->
+          <article class="row">
+            <div class="project-wrapper__text">
+              <h3 class="project-wrapper__text-title">Student Performance Analysis</h3>
+              <p class="project-wrapper__text-info">
+                Analyzed academic performance using student data from the UCI Machine Learning Repository. 
+                Implemented a structured data analysis pipeline involving data cleaning, exploratory data analysis (EDA), and visualization to identify key factors influencing final grades (G3).
+               </p>
+               <p class="project-wrapper__text-info"> 
+                Applied Random Forest Regression and Logistic Regression models to assess predictors, highlighting G2 (second period grade) as the most significant. 
+                Additional factors such as study time, parental education, and alcohol consumption were also examined. 
+              </p>
+               <div class="project-wrapper__tech">
+                <span>RandomForest</span>
+                <span>Logistic Regression</span>
+              </div>
+              <div class="project-wrapper__text-btns">
+                <!-- <a
+                  href="#"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="cta-btn cta-btn--hero cta-btn--projects"
+                  >See Live</a
+                > -->
+                <a href="https://github.com/Seetharamanrs/Student_performance_analysis" target="_blank" class="cta-btn text-color-main"
+                  >Source Code</a
+                >
+              </div>
+            </div>
+            
+
+            <div class="project-wrapper__image">
+              <a href="#" target="_blank" rel="noopener noreferrer">
+                <div class="thumbnail rounded">
+                  <img
+                    src="./assets/projects/student.jpeg"
+                    class="img-fluid"
+                    alt="Project Image"
+                    width="1366"
+                    height="767"
+                  />
+                </div>
+              </a>
+            </div>
+          </article>
+          <!-- /END Project -->
+
+          <!-- Each .row is a project -->
+          <article class="row">
+            <div class="project-wrapper__text">
+              <h3 class="project-wrapper__text-title">Ipl 2025 Analysis</h3>
+              <p class="project-wrapper__text-info">
+           Analyzed ball-by-ball data from the IPL 2025 season to extract insights on player performances, team statistics, and overall tournament trends.
+            Performed data cleaning and exploratory data analysis on over 17,000 deliveries, handling missing values related to wickets and fielding.
+            <p class="project-wrapper__text-info">
+             Explored dismissal types, top batsmen and bowlers, team-wise runs, and boundary hitting patterns, with a special focus on Chennai Super Kings.
+            Visualized key findings using Seaborn and Matplotlib in a structured Jupyter Notebook workflow.
+              </p>
+              <div class="project-wrapper__tech">
+                <span>Pandas</span>
+                <span>Scikit-learn </span>
+                <span>Streamlit</span>
+                <span>Matplot</span>
+                <span>Seaborn</span>
+              </div>
+              <div class="project-wrapper__text-btns">
+                <!-- <a
+                  href="#"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="cta-btn cta-btn--hero cta-btn--projects"
+                  >See Live</a
+                > -->
+                <a href="https://github.com/Seetharamanrs/ipl_2025_analysis" target="_blank" class="cta-btn text-color-main"
+                  >Source Code</a
+                >
+              </div>
+            </div>
+
+            <div class="project-wrapper__image">
+              <a href="#" target="_blank" rel="noopener noreferrer">
+                <div class="thumbnail rounded">
+                  <img
+                    src="./assets/projects/Ipl.png"
+                    class="img-fluid"
+                    alt="Project Image"
+                    width="1366"
+                    height="767"
+                  />
+                </div>
+              </a>
+            </div>
+          </article>
+                   <!-- Each .row is a project -->
+          <article class="row">
+            <div class="project-wrapper__text">
+              <h3 class="project-wrapper__text-title">Math Utility Toolkit</h3>
+              <p class="project-wrapper__text-info">
+          Implemented a Python-based console and GUI application that brings together key mathematical utilities using Object-Oriented Programming. 
+          The toolkit includes a basic calculator, geometry helper, statistical tools (mean, median, mode, range), a quadratic equation solver, and sequence generators (arithmetic, geometric, Fibonacci). 
+          A Streamlit-based interface enables interactive use alongside the command-line version. 
+            <p class="project-wrapper__text-info">
+             The project emphasizes clean code structure, modularity, and reusability through OOP
+              </p>
+               <div class="project-wrapper__tech">
+                <span> NumPy</span>
+                <span>Streamlit  </span>
+                <span> OOPS</span>
+                <span>Math</span>
+              </div>
+              <div class="project-wrapper__text-btns">
+                <!-- <a
+                  href="#"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="cta-btn cta-btn--hero cta-btn--projects"
+                  >See Live</a
+                > -->
+                <a href="https://github.com/Seetharamanrs/Math_utility_tools" target="_blank" class="cta-btn text-color-main"
+                  >Source Code</a
+                >
+              </div>
+            </div>
+
+            <div class="project-wrapper__image">
+              <a href="#" target="_blank" rel="noopener noreferrer">
+                <div class="thumbnail rounded">
+                  <img
+                    src="./assets/projects/math.png"
+                    class="img-fluid"
+                    alt="Project Image"
+                    width="1366"
+                    height="767"
+                  />
+                </div>
+              </a>
+            </div>
+          </article>
+          <!-- /END Project -->
+        </div>
+      </div>
     </section>
+    <!-- End Projects Section -->
 
-    <section>
-      <h2>Education</h2>
-      <h3>Sheffield Hallam University</h3>
-      <p><strong>MSc Artificial Intelligence</strong> | Merit (2:1) | 2023-2024 | Sheffield, UK</p>
-
-      <h3>PSNA College of Engineering and Technology</h3>
-      <p><strong>Bachelor of Engineering in Electronics and Communication</strong> | First-Class Honors | 2018-2022 | Tamil Nadu, India</p>
+    <!-- Contact Section -->
+    <section id="contact">
+      <div class="container">
+        <h2 class="section-title">Contact</h2>
+        <div class="contact-wrapper">
+          <p class="contact-wrapper__text">Lets build together !</p>
+          <a href="rseetharaman293@gmail.com"
+          class="cta-btn cta-btn--resume">Mail me</a>
+        </div>
+      </div>
     </section>
+    <!-- END Contact Section -->
 
-    <section class="projects">
-      <h2>Projects</h2>
-      <ul>
-        <li><strong>Student Performance Analytics</strong> (Jun 2025): Analyzed academic performance using UCI ML datasets through data cleaning, exploratory analysis, and modeling. Built Random Forest and Logistic Regression models to predict student grades, identifying G2 as the most significant predictor of final performance.</li>
-        <li><strong>Math Utility Toolkit</strong> (May 2025): Developed a Python-based console and Streamlit GUI application combining calculator functions, geometry helpers, statistical tools, quadratic equation solvers, and sequence generators using OOP and libraries like NumPy and Streamlit.</li>
-        <li><strong>Python Utility Toolkit</strong> (May 2025): Created a multi-functional Python command-line tool featuring unit conversion, cipher encryption/decryption, random number games, scientific and matrix calculators, and age/date utilities using modular classes and libraries such as python-dateutil, Streamlit, and NumPy.</li>
-        <li><strong>Reconstructing Image from Brain Activity</strong> (Jan 2024): Applied deep learning in PyTorch to reconstruct images using autoencoders from neural data.</li>
-        <li><strong>Handwritten Digit Recognition</strong> (Dec 2023): Developed classification model using Random Forest and neural networks with TensorFlow, Sklearn, NumPy, and Pandas.</li>
-        <li><strong>Wall Following E-puck Robot</strong> (Dec 2023): Designed autonomous navigation algorithms leveraging sensor fusion and Webots simulation.</li>
-        <li><strong>Schwa Identification</strong> (May 2024): Engineered AI-driven pipeline to improve ESOL pronunciation using techniques like MFCCs, RMS, ZCR, and formant frequency analysis.</li>
-        <li><strong>Forecasting Depression in Students</strong> (Sep 2024): Developed models to analyze student depression severity using machine learning, achieving 95.06% precision with Random Forest.</li>
-        <li><strong>Heart Diseases Prediction</strong> (Dec 2023): Designed a predictive analytics system using KNN and Random Forest, incorporating feature engineering and data preprocessing.</li>
-      </ul>
-    </section>
+    <!-- Footer Section -->
+    <footer class="footer">
+      <div class="container">
+        <a href="#hero" class="back-to-top" aria-label="go back to top">
+          <i class="fa fa-angle-up fa-2x" aria-hidden="true"></i>
+        </a>
+        <div class="social-links">
+          <!-- <a
+            href="#!"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="twitter"
+          >
+            <i class="fa-brands fa-twitter"></i>
+          </a> -->
+          <!-- <a
+            href="#!"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="instagram"
+          >
+            <i class="fa-brands fa-instagram"></i>
+          </a> -->
+          <!-- <a
+            href="#!"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="codepen"
+          >
+            <i class="fa-brands fa-codepen"></i>
+          </a> -->
+          <a
+            href="https://www.linkedin.com/in/seetharaman-r/"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="linkedin"
+          >
+            <i class="fa-brands fa-linkedin"></i>
+          </a>
+          <a
+            href=""
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="github"
+          >
+            <i class="fa-brands fa-github"></i>
+          </a>
+        </div>
+        <hr />
+        <p class="footer__text">
+          <br />Made with &hearts;
+          &copy; <span id="year"></span>
+        </p>
+      </div>
+    </footer>
+    <!-- END Footer Section -->
 
-    <section>
-      <h2>Core Skills</h2>
-      <ul class="skills">
-        <li>Python</li>
-        <li>REST APIs</li>
-        <li>Streamlit</li>
-        <li>Machine Learning</li>
-        <li>Deep Learning</li>
-        <li>TensorFlow</li>
-        <li>PyTorch</li>
-        <li>Data Analysis</li>
-        <li>Git</li>
-        <li>VS Code</li>
-      </ul>
-    </section>
-
-    <section>
-      <h2>Certifications</h2>
-      <ul>
-        <li>Python for Data Science, AI & Development – IBM (Feb 2025)</li>
-        <li>Building a Personalized Chatbot with OpenAI and LangChain – LinkedIn (Feb 2025)</li>
-        <li>Hands-On AI: Build a Generative Language Model from Scratch – LinkedIn (Dec 2024)</li>
-        <li>Generative AI: Working with Large Language Models – LinkedIn (Mar 2024)</li>
-        <li>Introduction to Large Language Models – LinkedIn (Mar 2024)</li>
-        <li>Signal Processing Onramp – MATLAB Coding (Mar 2024)</li>
-        <li>MySQL for Non-Programmers – LinkedIn (Nov 2024)</li>
-      </ul>
-    </section>
-
-    <section class="contact">
-      <h2>Contact</h2>
-      <p style="display: flex; align-items: center; gap: 15px;">
-      <i class="fa-regular fa-envelope fa-fade fa-2xl" style="color: #74C0FC;"></i>
-      <a href="rseetharaman293@gmail.com" target="_blank" rel="noopener noreferrer" style="text-decoration:none; color:inherit;">
-    <span style="font-size: 1rem;font-weight: 600; color: #333;">rseetharaman293@gmail.com</span>
-   
-      <a href="https://www.linkedin.com/in/seetharaman-r" target="_blank" rel="noopener noreferrer" style="text-decoration:none; color:inherit;">
-      <i class="fa-brands fa-linkedin fa-fade fa-2xl" style="color: #74C0FC;"></i>
-      </a>
-   <span style="font-size: 1rem;font-weight: 600; color: #333;">seetharaman-r</span>
-  </p>
-  </main>
-
-  <footer>
-    &copy; 2025 Seetharaman. Built with ❤️
-  </footer>
-</body>
+    <script>
+      document.getElementById("year").textContent = new Date().getFullYear()
+    </script>
+    <script src="./javascript/vanilla-tilt.min.js"></script>
+    <script type="text/javascript" src="./javascript/valtilt.js"></script>
+  </body>
 </html>
