@@ -718,12 +718,10 @@ section .row span {
 
 /* Project tech badges */
 .project-wrapper__tech {
-  background: none;
    display: flex;
       flex-wrap: wrap;
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.6rem ;
+      display: flex;     
+      gap:  0.6rem  ;
       max-width: fit-content;
       margin: 0.1rem;
       margin-bottom: 1rem;
@@ -735,7 +733,7 @@ section .row span {
     margin-top: 0rem;
     background-color: #84e3ed;
     color: rgb(8, 1, 1);
-    padding: 0.3rem 0.6rem;
+    padding: 0.6rem 0.3 rem ;
     border-radius: 99999px;
     font-weight: 600;
     font-size: 1rem;
