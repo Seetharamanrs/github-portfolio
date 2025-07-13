@@ -249,7 +249,7 @@ a:hover {
 .footer__text a:active {
   color: #36d1dc;
 }
-
+  
 .footer hr {
   margin: 1rem auto;
   border: 0;
@@ -526,7 +526,7 @@ section .row span {
 }
 
 #hero .hero-title {
-  font-size: 5.6rem;
+  font-size: 7rem;
   font-weight: 700;
   margin-bottom: 3.2rem;
   text-align: left;
