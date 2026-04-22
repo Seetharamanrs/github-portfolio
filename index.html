@@ -1,634 +1,1340 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" />
-    <link rel="preconnect" href="https://cdnjs.cloudflare.com" />
-    <link rel="stylesheet" href="./css/main.css" />    <!-- Title: add your Portfolio websites's title here -->
-    <title>Seetharaman Radhakrishnan | Developer</title>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Seetharaman Radhakrishnan | AI/ML Engineer</title>
+  <meta name="description" content="AI/ML Engineer, 2x AWS Certified, MSc Artificial Intelligence — Sheffield Hallam University" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" crossorigin="anonymous" />
+  <style>
+    /* ============================
+       CSS VARIABLES & RESET
+    ============================ */
+    :root {
+      --bg: #0a0a0f;
+      --surface: #111118;
+      --surface2: #16161f;
+      --border: rgba(255,255,255,0.07);
+      --accent: #00e5a0;
+      --accent2: #0099ff;
+      --accent3: #ff6b35;
+      --text: #e8e8f0;
+      --muted: #7070a0;
+      --heading: #ffffff;
+      --mono: 'Space Mono', monospace;
+      --sans: 'DM Sans', sans-serif;
+      --display: 'Syne', sans-serif;
+    }
 
-    <!-- Add some coding keywords below, Ex: (javascript, yourusername, etc) -->
-    <meta name="keywords" content="[username], [name], skill" />
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-    
-    <!-- Improve your SEO by adding a small descrption of you -->
-    <meta name="description" content="[Your name here] | Developer" />
+    html { scroll-behavior: smooth; }
 
-    <!-- Add a your png Logo to the assets folder and change the href attr accordingly  -->
-    <!-- <link rel="icon" type="image/png" href="./assets/devfolio-logo.png" /> -->
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: var(--sans);
+      font-size: 16px;
+      line-height: 1.7;
+      overflow-x: hidden;
+    }
 
-    <!-- Add your primary-theme color for the value of content -->
-    <meta name="theme-color" content="#36d1dc" />
+    /* Grain texture overlay */
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+      pointer-events: none;
+      z-index: 999;
+      opacity: 0.4;
+    }
 
-    <!-- Open Graph / Facebook -->
-    <meta property="og:type" content="website" />
-    <!-- Fill content with the URL of this portfolio you'll host -->
-    <meta property="og:url" content="https://devfolio.js.org/" />
-    <!-- Fill content with the title of your portfolio(Recommended to use what you put in <title> tag) -->
-    <meta property="og:title" content="[Seetharaman Radhakrishnan] | Developer" />
-    <!-- Give a short description that'll show up when you/someone shares your portfolio on different platform -->
-    <meta property="og:description" content="Made using DevFolio Template" />
-    <!-- Add a thumbnail image in assets folder and fill the con
-     
-     
-     
-     tent attr with URL to that thumbnail 
-      so that a thumbnail image of your portfolio is shown while shared on other platform -->
-    <meta
-      property="og:image"
-      content="https://devfolio.js.org/assets/devfolio.png"
-    />
+    a { color: inherit; text-decoration: none; }
 
-    <!-- Twitter -->
-    <meta property="twitter:card" content="summary_large_image" />
-    <!-- Again fill content attr with the URL of this portfolio you'll host -->
-    <meta property="twitter:url" content="https://devfolio.js.org" />
-    <!-- Recommended to use the same text used within <title> element -->
-    <meta property="twitter:title" content="Your name here| Developer" />
-    <!-- short description that shows up while your portfolio is shared -->
-    <meta
-      property="twitter:description"
-      content="Made using DevFolio Template"
-    />
+    /* ============================
+       NAVIGATION
+    ============================ */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.2rem 4rem;
+      background: rgba(10,10,15,0.85);
+      backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--border);
+    }
 
-    <!-- link tags -->
-    <link rel="preload" as="style" href="./css/main.css" />
-    <link rel="stylesheet" href="./css/main.css" />
+    .nav-logo {
+      font-family: var(--mono);
+      font-size: 0.85rem;
+      color: var(--accent);
+      letter-spacing: 0.05em;
+    }
 
-    
-    <!-- FontAwesome Icons link -->
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css"
-      integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ=="
-      crossorigin="anonymous"
-      referrerpolicy="no-referrer"
-    />
-    <script defer src="./javascript/scrollreveal.min.js"></script>
-    <script
-      defer
-      type="text/javascript"
-      src="./javascript/scrollveal.js"
-    ></script>
+    .nav-links {
+      display: flex;
+      gap: 2.5rem;
+      list-style: none;
+    }
 
-    <!-- Remove Google Analytics once you have your portfolio website set-up -->
-    <!-- Global site tag (gtag.js) - Google Analytics -->
-    <script
-      async
-      src="https://www.googletagmanager.com/gtag/js?id=UA-122228201-4"
-    ></script>
-    <script>
-      window.dataLayer = window.dataLayer || []
-      function gtag() {
-        dataLayer.push(arguments)
-      }
-      gtag("js", new Date())
+    .nav-links a {
+      font-family: var(--mono);
+      font-size: 0.78rem;
+      color: var(--muted);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      transition: color 0.2s;
+    }
 
-      gtag("config", "UA-122228201-4")
-    </script>
-    <!-- End of Google Analytics -->
-  </head>
-  <body>
-    <!-- Hero Section -->
-    <div id="hero">
-      <section class="container">
-        <h1 class="hero-title">
-          <span class="text-color-main name">Seetharaman Radhakrishnan</span>
-          <br />
-           <span style="font-size: 26px;">MSc Artificial Intelligence| 2x AWS Certified | Data Scientist | Python Developer | AI/ML Engineer | Open to Relocation </span>
-        </h1>
-        <p class="hero-cta">
-          <a class="cta-btn cta-btn--hero" href="#projects">Projects</a>
-        </p>
-      </section>
-      <a href="#PROJECTS" class="scroll-down-link" aria-label="scroll-down">
-        <div class="scroll-down"></div
-      ></a>
-    </div>
-    <!-- /END Hero Section -->
+    .nav-links a:hover { color: var(--accent); }
 
-    <!-- About Section -->
-    <section id="about">
-      <div class="container">
-        <h2 class="section-title">About Me</h2>
-        <div class="row about-wrapper">
-          <div class="about-wrapper__image">
-            <img
-              class="img-fluid"
-              src="./assets/profile2.png"
-              alt="Profile Image"
-              width="450"
-              height="350"
-            />
-          </div>
-          <div class="about-wrapper__info">
-            <p class="about-wrapper__info-text">
-             I’m an AWS Certified AI/ML Engineer and Python Developer with a Master’s in Artificial Intelligence from Sheffield Hallam University. Skilled in machine learning, deep learning, and cloud-based solutions, I specialize in building intelligent, end-to-end systems from data to scalable deployment.
-             
-            <p class="about-wrapper__info-text">
-              I’m passionate about solving real-world problems from academic performance prediction to generative image reconstruction  and enjoy making AI practical, efficient, and impactful.
+    .nav-cta {
+      background: var(--accent);
+      color: #000 !important;
+      padding: 0.5rem 1.2rem;
+      border-radius: 4px;
+      font-weight: 700 !important;
+      transition: opacity 0.2s !important;
+    }
 
-            </p>
-            <p class="about-wrapper__info-text">
-              Always exploring, always learning. Let’s connect and build something meaningful!
-            </p>
-            <p class="about-wrapper__info-text">
-              Feel Free to Reach out!
-            </p>
-            <span class="about-wrapper__cta">
-              <a href="https://github.com/Seetharamanrs" class="cta-btn cta-btn--resume">View My GitHub</a>
-            </span>
-          </div>
-        </div>
+    .nav-cta:hover { opacity: 0.85; color: #000 !important; }
+
+    /* ============================
+       HERO
+    ============================ */
+    #hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      padding: 8rem 4rem 4rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    /* Animated background grid */
+    #hero::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(0,229,160,0.04) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(0,229,160,0.04) 1px, transparent 1px);
+      background-size: 60px 60px;
+      animation: gridShift 20s linear infinite;
+    }
+
+    @keyframes gridShift {
+      0% { background-position: 0 0; }
+      100% { background-position: 60px 60px; }
+    }
+
+    /* Glowing orbs */
+    .hero-orb {
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(80px);
+      pointer-events: none;
+    }
+
+    .hero-orb-1 {
+      width: 500px; height: 500px;
+      background: radial-gradient(circle, rgba(0,229,160,0.12) 0%, transparent 70%);
+      top: -100px; right: 100px;
+      animation: orbFloat1 8s ease-in-out infinite alternate;
+    }
+
+    .hero-orb-2 {
+      width: 400px; height: 400px;
+      background: radial-gradient(circle, rgba(0,153,255,0.1) 0%, transparent 70%);
+      bottom: 0; left: -100px;
+      animation: orbFloat2 10s ease-in-out infinite alternate;
+    }
+
+    @keyframes orbFloat1 {
+      from { transform: translate(0, 0); }
+      to { transform: translate(30px, 40px); }
+    }
+
+    @keyframes orbFloat2 {
+      from { transform: translate(0, 0); }
+      to { transform: translate(-20px, -30px); }
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      max-width: 900px;
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: rgba(0,229,160,0.08);
+      border: 1px solid rgba(0,229,160,0.25);
+      color: var(--accent);
+      font-family: var(--mono);
+      font-size: 0.75rem;
+      padding: 0.4rem 1rem;
+      border-radius: 100px;
+      margin-bottom: 1.5rem;
+      animation: fadeSlideUp 0.6s ease both;
+    }
+
+    .hero-badge .dot {
+      width: 6px; height: 6px;
+      border-radius: 50%;
+      background: var(--accent);
+      animation: pulse 2s ease-in-out infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.5; transform: scale(1.3); }
+    }
+
+    .hero-name {
+      font-family: var(--display);
+      font-size: clamp(3rem, 6vw, 5.5rem);
+      font-weight: 800;
+      line-height: 1.05;
+      color: var(--heading);
+      animation: fadeSlideUp 0.6s 0.1s ease both;
+      letter-spacing: -0.02em;
+    }
+
+    .hero-name span {
+      background: linear-gradient(135deg, var(--accent) 0%, var(--accent2) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .hero-role {
+      font-family: var(--display);
+      font-size: clamp(1.2rem, 2.5vw, 1.6rem);
+      font-weight: 600;
+      color: var(--muted);
+      margin-top: 0.5rem;
+      animation: fadeSlideUp 0.6s 0.2s ease both;
+    }
+
+    .hero-summary {
+      max-width: 620px;
+      color: var(--muted);
+      font-size: 1.05rem;
+      margin-top: 1.5rem;
+      line-height: 1.8;
+      animation: fadeSlideUp 0.6s 0.3s ease both;
+    }
+
+    .hero-contact-bar {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.2rem;
+      margin-top: 2rem;
+      animation: fadeSlideUp 0.6s 0.4s ease both;
+    }
+
+    .contact-chip {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-family: var(--mono);
+      font-size: 0.8rem;
+      color: var(--text);
+      background: var(--surface2);
+      border: 1px solid var(--border);
+      padding: 0.5rem 1rem;
+      border-radius: 6px;
+      transition: border-color 0.2s, color 0.2s;
+    }
+
+    .contact-chip:hover { border-color: var(--accent); color: var(--accent); }
+
+    .contact-chip i { color: var(--accent); font-size: 0.9rem; }
+
+    .hero-actions {
+      display: flex;
+      gap: 1rem;
+      margin-top: 2.5rem;
+      animation: fadeSlideUp 0.6s 0.5s ease both;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.8rem 1.8rem;
+      border-radius: 6px;
+      font-family: var(--mono);
+      font-size: 0.82rem;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: all 0.2s;
+      border: none;
+    }
+
+    .btn-primary {
+      background: var(--accent);
+      color: #000;
+    }
+
+    .btn-primary:hover { background: #00ffb3; transform: translateY(-2px); }
+
+    .btn-ghost {
+      background: transparent;
+      color: var(--text);
+      border: 1px solid var(--border);
+    }
+
+    .btn-ghost:hover { border-color: var(--accent); color: var(--accent); }
+
+    .hero-stats {
+      display: flex;
+      gap: 3rem;
+      margin-top: 3.5rem;
+      padding-top: 2rem;
+      border-top: 1px solid var(--border);
+      animation: fadeSlideUp 0.6s 0.6s ease both;
+    }
+
+    .stat-item {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .stat-num {
+      font-family: var(--display);
+      font-size: 2rem;
+      font-weight: 800;
+      color: var(--heading);
+      line-height: 1;
+    }
+
+    .stat-num span { color: var(--accent); }
+
+    .stat-label {
+      font-size: 0.78rem;
+      color: var(--muted);
+      margin-top: 0.3rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+
+    @keyframes fadeSlideUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* ============================
+       SECTION LAYOUT
+    ============================ */
+    section {
+      padding: 6rem 4rem;
+    }
+
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .section-label {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .section-label span {
+      font-family: var(--mono);
+      font-size: 0.75rem;
+      color: var(--accent);
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+    }
+
+    .section-label::after {
+      content: '';
+      height: 1px;
+      width: 60px;
+      background: var(--accent);
+      opacity: 0.4;
+    }
+
+    .section-title {
+      font-family: var(--display);
+      font-size: clamp(2rem, 4vw, 2.8rem);
+      font-weight: 800;
+      color: var(--heading);
+      margin-bottom: 3rem;
+      letter-spacing: -0.02em;
+    }
+
+    /* ============================
+       SKILLS SECTION
+    ============================ */
+    #skills {
+      background: var(--surface);
+    }
+
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .skill-card {
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 1.8rem;
+      transition: border-color 0.3s, transform 0.3s;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .skill-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 2px;
+      background: linear-gradient(90deg, var(--accent), var(--accent2));
+      transform: scaleX(0);
+      transition: transform 0.3s;
+      transform-origin: left;
+    }
+
+    .skill-card:hover { border-color: rgba(0,229,160,0.3); transform: translateY(-3px); }
+    .skill-card:hover::before { transform: scaleX(1); }
+
+    .skill-card-icon {
+      font-size: 1.5rem;
+      margin-bottom: 1rem;
+    }
+
+    .skill-card-title {
+      font-family: var(--display);
+      font-weight: 700;
+      font-size: 0.95rem;
+      color: var(--heading);
+      margin-bottom: 1rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .skill-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+
+    .skill-tag {
+      font-family: var(--mono);
+      font-size: 0.72rem;
+      background: rgba(0,229,160,0.06);
+      border: 1px solid rgba(0,229,160,0.15);
+      color: var(--accent);
+      padding: 0.25rem 0.7rem;
+      border-radius: 4px;
+    }
+
+    /* ============================
+       CERTIFICATIONS
+    ============================ */
+    #certifications {
+      background: var(--bg);
+    }
+
+    .cert-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1.2rem;
+    }
+
+    .cert-card {
+      background: var(--surface2);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 1.5rem;
+      display: flex;
+      gap: 1.2rem;
+      align-items: flex-start;
+      transition: border-color 0.3s;
+    }
+
+    .cert-card:hover { border-color: rgba(0,229,160,0.4); }
+
+    .cert-icon {
+      width: 44px; height: 44px;
+      background: linear-gradient(135deg, rgba(0,229,160,0.15), rgba(0,153,255,0.1));
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.2rem;
+      flex-shrink: 0;
+    }
+
+    .cert-title {
+      font-family: var(--display);
+      font-weight: 700;
+      font-size: 0.9rem;
+      color: var(--heading);
+      margin-bottom: 0.2rem;
+    }
+
+    .cert-issuer {
+      font-family: var(--mono);
+      font-size: 0.72rem;
+      color: var(--accent);
+    }
+
+    .cert-date {
+      font-size: 0.75rem;
+      color: var(--muted);
+      margin-top: 0.2rem;
+    }
+
+    /* ============================
+       PROJECTS
+    ============================ */
+    #projects {
+      background: var(--surface);
+    }
+
+    .project-filters {
+      display: flex;
+      gap: 0.8rem;
+      margin-bottom: 2.5rem;
+      flex-wrap: wrap;
+    }
+
+    .filter-btn {
+      font-family: var(--mono);
+      font-size: 0.75rem;
+      padding: 0.4rem 1rem;
+      border-radius: 100px;
+      border: 1px solid var(--border);
+      background: transparent;
+      color: var(--muted);
+      cursor: pointer;
+      transition: all 0.2s;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .filter-btn.active, .filter-btn:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+      background: rgba(0,229,160,0.06);
+    }
+
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .project-card {
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      overflow: hidden;
+      transition: all 0.3s;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .project-card:hover {
+      border-color: rgba(0,229,160,0.3);
+      transform: translateY(-4px);
+      box-shadow: 0 20px 60px rgba(0,0,0,0.4);
+    }
+
+    .project-img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+      display: block;
+      filter: saturate(0.7);
+      transition: filter 0.3s;
+    }
+
+    .project-card:hover .project-img { filter: saturate(1); }
+
+    .project-img-placeholder {
+      height: 180px;
+      background: linear-gradient(135deg, var(--surface2), var(--surface));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2.5rem;
+      color: rgba(0,229,160,0.2);
+    }
+
+    .project-body {
+      padding: 1.5rem;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .project-category {
+      font-family: var(--mono);
+      font-size: 0.7rem;
+      color: var(--accent);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      margin-bottom: 0.6rem;
+    }
+
+    .project-title {
+      font-family: var(--display);
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: var(--heading);
+      margin-bottom: 0.8rem;
+      line-height: 1.3;
+    }
+
+    .project-impact {
+      font-size: 0.88rem;
+      color: var(--text);
+      margin-bottom: 1rem;
+      flex: 1;
+      line-height: 1.7;
+    }
+
+    .project-highlight {
+      background: rgba(0,229,160,0.07);
+      border-left: 2px solid var(--accent);
+      padding: 0.5rem 0.8rem;
+      border-radius: 0 6px 6px 0;
+      font-family: var(--mono);
+      font-size: 0.75rem;
+      color: var(--accent);
+      margin-bottom: 1.2rem;
+    }
+
+    .project-tech {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+      margin-bottom: 1.2rem;
+    }
+
+    .tech-tag {
+      font-family: var(--mono);
+      font-size: 0.68rem;
+      background: var(--surface2);
+      border: 1px solid var(--border);
+      color: var(--muted);
+      padding: 0.2rem 0.6rem;
+      border-radius: 4px;
+    }
+
+    .project-links {
+      display: flex;
+      gap: 0.8rem;
+    }
+
+    .proj-link {
+      font-family: var(--mono);
+      font-size: 0.75rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      color: var(--muted);
+      border: 1px solid var(--border);
+      padding: 0.35rem 0.9rem;
+      border-radius: 6px;
+      transition: all 0.2s;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .proj-link:hover { color: var(--accent); border-color: var(--accent); }
+
+    .proj-link.primary {
+      background: var(--accent);
+      color: #000;
+      border-color: var(--accent);
+    }
+
+    .proj-link.primary:hover { background: #00ffb3; }
+
+    /* ============================
+       EDUCATION
+    ============================ */
+    #education {
+      background: var(--bg);
+    }
+
+    .edu-timeline {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+      position: relative;
+      padding-left: 2rem;
+    }
+
+    .edu-timeline::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 8px;
+      bottom: 8px;
+      width: 1px;
+      background: linear-gradient(to bottom, var(--accent), transparent);
+    }
+
+    .edu-item {
+      position: relative;
+      background: var(--surface2);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 1.8rem;
+      transition: border-color 0.3s;
+    }
+
+    .edu-item::before {
+      content: '';
+      position: absolute;
+      left: -2.4rem;
+      top: 1.8rem;
+      width: 10px; height: 10px;
+      border-radius: 50%;
+      background: var(--accent);
+      box-shadow: 0 0 12px var(--accent);
+    }
+
+    .edu-item:hover { border-color: rgba(0,229,160,0.3); }
+
+    .edu-degree {
+      font-family: var(--display);
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--heading);
+      margin-bottom: 0.3rem;
+    }
+
+    .edu-school {
+      font-size: 0.9rem;
+      color: var(--accent);
+      margin-bottom: 0.2rem;
+    }
+
+    .edu-meta {
+      font-family: var(--mono);
+      font-size: 0.75rem;
+      color: var(--muted);
+    }
+
+    /* ============================
+       CONTACT
+    ============================ */
+    #contact {
+      background: var(--surface);
+      text-align: center;
+    }
+
+    .contact-inner {
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    .contact-heading {
+      font-family: var(--display);
+      font-size: clamp(2rem, 4vw, 3.5rem);
+      font-weight: 800;
+      color: var(--heading);
+      margin-bottom: 1rem;
+      line-height: 1.1;
+    }
+
+    .contact-heading span {
+      background: linear-gradient(135deg, var(--accent), var(--accent2));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .contact-sub {
+      color: var(--muted);
+      font-size: 1rem;
+      margin-bottom: 2.5rem;
+    }
+
+    .contact-links {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+      margin-bottom: 3rem;
+    }
+
+    .contact-link {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      background: var(--bg);
+      border: 1px solid var(--border);
+      color: var(--text);
+      padding: 0.9rem 1.6rem;
+      border-radius: 10px;
+      font-family: var(--mono);
+      font-size: 0.82rem;
+      transition: all 0.2s;
+    }
+
+    .contact-link:hover { border-color: var(--accent); color: var(--accent); transform: translateY(-2px); }
+
+    .contact-link i { color: var(--accent); }
+
+    /* ============================
+       FOOTER
+    ============================ */
+    footer {
+      background: var(--bg);
+      border-top: 1px solid var(--border);
+      padding: 2rem 4rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .footer-logo {
+      font-family: var(--mono);
+      font-size: 0.8rem;
+      color: var(--muted);
+    }
+
+    .footer-logo span { color: var(--accent); }
+
+    .footer-social {
+      display: flex;
+      gap: 1rem;
+    }
+
+    .footer-social a {
+      width: 36px; height: 36px;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--muted);
+      font-size: 0.9rem;
+      transition: all 0.2s;
+    }
+
+    .footer-social a:hover { border-color: var(--accent); color: var(--accent); }
+
+    /* ============================
+       AVAILABILITY BANNER
+    ============================ */
+    .availability-banner {
+      position: fixed;
+      bottom: 1.5rem;
+      right: 1.5rem;
+      background: rgba(0,229,160,0.1);
+      backdrop-filter: blur(12px);
+      border: 1px solid rgba(0,229,160,0.3);
+      color: var(--accent);
+      font-family: var(--mono);
+      font-size: 0.72rem;
+      padding: 0.6rem 1.2rem;
+      border-radius: 100px;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      z-index: 50;
+      animation: fadeSlideUp 1s 1s ease both;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+    }
+
+    .availability-banner .dot {
+      width: 6px; height: 6px;
+      border-radius: 50%;
+      background: var(--accent);
+      animation: pulse 1.5s ease-in-out infinite;
+    }
+
+    /* ============================
+       RESPONSIVE
+    ============================ */
+    @media (max-width: 768px) {
+      nav { padding: 1rem 1.5rem; }
+      .nav-links { display: none; }
+      #hero { padding: 6rem 1.5rem 3rem; }
+      section { padding: 4rem 1.5rem; }
+      footer { flex-direction: column; gap: 1rem; text-align: center; padding: 1.5rem; }
+      .hero-stats { gap: 2rem; }
+      .projects-grid { grid-template-columns: 1fr; }
+    }
+
+    /* Scroll reveal base state */
+    .reveal {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- AVAILABILITY BADGE -->
+  <div class="availability-banner">
+    <div class="dot"></div>
+    Open to Work · Relocating Anywhere
+  </div>
+
+  <!-- NAV -->
+  <nav>
+    <div class="nav-logo">SR // AI/ML</div>
+    <ul class="nav-links">
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#certifications">Certifications</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#education">Education</a></li>
+      <li><a href="#contact" class="nav-cta">Hire Me</a></li>
+    </ul>
+  </nav>
+
+  <!-- HERO -->
+  <section id="hero">
+    <div class="hero-orb hero-orb-1"></div>
+    <div class="hero-orb hero-orb-2"></div>
+    <div class="hero-content">
+      <div class="hero-badge">
+        <div class="dot"></div>
+        2x AWS Certified · MSc Artificial Intelligence
       </div>
-    </section>
-    <!-- /END About Section -->
+      <h1 class="hero-name">
+        Seetharaman<br><span>Radhakrishnan</span>
+      </h1>
+      <p class="hero-role">AI/ML Engineer · Data Scientist · Python Developer</p>
+      <p class="hero-summary">
+        I build end-to-end ML systems — from clinical prediction pipelines achieving 95%+ accuracy to real-time inference apps deployed on the cloud. Specialized in healthcare AI, NLP, and scalable data pipelines.
+      </p>
 
-    
-    <!--Projects Section-->
-    <section id="projects">
-      <div class="container">
-        <div class="project-wrapper">
-          <h2 class="section-title dark-blue-text">Projects</h2>
-
-
-  <!-- Each .row is a project -->
-          <article class="row">
-            <div class="project-wrapper__text">
-              <h3 class="project-wrapper__text-title">Meal Recommender</h3>
-              <p class="project-wrapper__text-info">
-         
-              Prototyped an AI-powered meal planning assistant that scrapes real recipes via web scraping nd parses cook times for user-defined time filtering.
-              Implemented an interactive UI using Streamlit and integrated Ollama’s local LLM (Gemma 3B) via LangChain for intelligent and personalized meal selection.
-
-              </p>  
-          <p class="project-wrapper__text-info">
-            End to End complete data pipeline including scraping, time parsing, and dynamic filtering. Utilized a LangChain Pandas agent to generate daily meal plans (breakfast, lunch, and dinner) by randomly selecting from filtered results.
-            The system reduced user decision fatigue by over 60%, streamlining the meal selection process for time-constrained individuals.  
-          </p>
-
-               <div class="project-wrapper__tech">
-                <span>Streamlit  </span>
-                <span> BeautifulSoup</span>
-                <span> Pandas</span>
-                <span> Ollama (Gemma3)</span>
-                <span> AI Pipeline</span>
-                <span> LangChain (Pandas Agent)</span>
-              </div>
-              <div class="project-wrapper__text-btns">
-                <!-- <a
-                  href="https://mathutilitytools-4.streamlit.app/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  class="cta-btn cta-btn--hero cta-btn--projects"
-                  >See Live</a
-                > -->
-                <a href="https://github.com/Seetharamanrs/Meal_recommender" target="_blank" class="cta-btn text-color-main"
-                  >Source Code</a
-                >
-              </div>
-            </div>
-
-            <div class="project-wrapper__image">
-              <a href="#" target="_blank" rel="noopener noreferrer">
-                <div class="thumbnail rounded">
-                  <img
-                    src="./assets/projects/meal.png"
-                    class="img-fluid"
-                    alt="Project Image"
-                    width="1366"
-                    height="767"
-                  />
-                </div>
-              </a>
-            </div>
-          </article>
-          <!-- /END Project -->
-          <!-- Each .row is a project -->
-          <article class="row">
-            <div class="project-wrapper__text">
-              <h3 class="project-wrapper__text-title">Superstore Sales Analysis</h3>
-              <p class="project-wrapper__text-info">
-                Architected an interactive analytics dashboard and data pipeline leveraging Streamlit, Pandas, Seaborn, and scikit-learn to analyze historical retail sales data. Implemented KMeans clustering for customer segmentation, evaluated clusters using F1-score and precision, and visualized them using PCA. Enabled dynamic filtering by year and region through real-time KPIs and charts.
-              </p>
-              <div class="project-wrapper__tech">
-                <span>Python</span>
-                <span>Jupyter Notebook</span>
-                <span>Streamlit</span>
-                <span>Matplot</span>
-                <span>Seaborn</span>
-              </div>
-              <div class="project-wrapper__text-btns">
-                <!-- <a
-                  href="#"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  class="cta-btn cta-btn--hero cta-btn--projects"
-                  >See Live</a
-                > -->
-                <a href="https://github.com/Seetharamanrs/SuperStore-sales-dashboard" target="_blank" class="cta-btn text-color-main"
-                  >Source Code</a
-                >
-              </div>
-            </div>
-
-            <div class="project-wrapper__image">
-              <a href="#" target="_blank" rel="noopener noreferrer">
-                <div class="thumbnail rounded">
-                  <img
-                    src="./assets/projects/Superstore.png"
-                    class="img-fluid"
-                    alt="Project Image"
-                    width="1366"
-                    height="767"
-                  />
-                </div>
-              </a>
-            </div>
-          </article>
-          <!-- /END Project -->
-
-          <!-- Each .row is a project -->
-          <article class="row">
-            <div class="project-wrapper__text">
-              <h3 class="project-wrapper__text-title">Student Performance Analysis</h3>
-              <p class="project-wrapper__text-info">
-               Analyzed academic performance using student data from the UCI Machine Learning Repository.
-                Implemented a structured data analysis pipeline involving data cleaning, exploratory data analysis (EDA), and visualization to identify key factors influencing final grades (G3).
-               </p>
-               <p class="project-wrapper__text-info"> 
-                Applied Random Forest Regression and Logistic Regression models to assess predictors, highlighting G2 (second period grade) as the most significant. 
-                Improved model accuracy from 91% with Logistic Regression to 92% with Random Forest.
-                Additional factors such as study time, parental education, and alcohol consumption were also examined.
-              </p>
-               <div class="project-wrapper__tech">
-                <span>RandomForest</span>
-                <span>Logistic Regression</span>
-              </div>
-              <div class="project-wrapper__text-btns">
-                <!-- <a
-                  href="#"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  class="cta-btn cta-btn--hero cta-btn--projects"
-                  >See Live</a
-                > -->
-                <a href="https://github.com/Seetharamanrs/Student_performance_analysis" target="_blank" class="cta-btn text-color-main"
-                  >Source Code</a
-                >
-              </div>
-            </div>
-            
-
-            <div class="project-wrapper__image">
-              <a href="#" target="_blank" rel="noopener noreferrer">
-                <div class="thumbnail rounded">
-                  <img
-                    src="./assets/projects/student.jpeg"
-                    class="img-fluid"
-                    alt="Project Image"
-                    width="1366"
-                    height="767"
-                  />
-                </div>
-              </a>
-            </div>
-          </article>
-          <!-- /END Project -->
-
-          <!-- Each .row is a project -->
-          <article class="row">
-            <div class="project-wrapper__text">
-              <h3 class="project-wrapper__text-title">Ipl 2025 Analysis</h3>
-              <p class="project-wrapper__text-info">
-           Analyzed ball-by-ball data from the IPL 2025 season to extract insights on player performances, team statistics, and overall tournament trends.
-            Performed data cleaning and exploratory data analysis on over 17,000 deliveries, handling missing values related to wickets and fielding.
-            <p class="project-wrapper__text-info">
-             Explored dismissal types, top batsmen and bowlers, team-wise runs, and boundary hitting patterns, with a special focus on Chennai Super Kings.
-            Visualized key findings using Seaborn and Matplotlib in a structured Jupyter Notebook workflow.
-              </p>
-              <div class="project-wrapper__tech">
-                <span>Pandas</span>
-                <span>Scikit-learn </span>
-                <span>Streamlit</span>
-                <span>Matplot</span>
-                <span>Seaborn</span>
-              </div>
-              <div class="project-wrapper__text-btns">
-                <a
-                  href="https://ipl2025analysis1.streamlit.app/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  class="cta-btn cta-btn--hero cta-btn--projects"
-                  >See Live</a
-                >
-                <a href="https://github.com/Seetharamanrs/ipl_2025_analysis" target="_blank" class="cta-btn text-color-main"
-                  >Source Code</a
-                >
-              </div>
-            </div>
-
-            <div class="project-wrapper__image">
-              <a href="#" target="_blank" rel="noopener noreferrer">
-                <div class="thumbnail rounded">
-                  <img
-                    src="./assets/projects/Ipl.png"
-                    class="img-fluid"
-                    alt="Project Image"
-                    width="1366"
-                    height="767"
-                  />
-                </div>
-              </a>
-            </div>
-          </article>
-                   <!-- Each .row is a project -->
-          <article class="row">
-            <div class="project-wrapper__text">
-              <h3 class="project-wrapper__text-title">Math Utility Toolkit</h3>
-              <p class="project-wrapper__text-info">
-          The Math Utility Toolkit is a modular Python application that integrates essential mathematical tools, including a basic calculator, geometry helper, statistical functions, quadratic equation solver, and sequence generators (arithmetic, geometric, Fibonacci). It offers both a command-line interface and an interactive Streamlit GUI. 
-            <p class="project-wrapper__text-info">
-             Designed using Object-Oriented Programming principles, the project emphasizes clean, maintainable, and scalable code with approximately 1000 lines. Functionality was rigorously validated through over 25 test cases, ensuring reliability and enhanced user accessibility.
-              </p>
-               <div class="project-wrapper__tech">
-                <span>Python</span>
-                <span> NumPy</span>
-                <span>Streamlit  </span>
-                <span> Object-Oriented Programming (OOP)</span>
-                <span> Testing</span>
-                <span>GUI Development</span>
-                <span>Math</span>
-              </div>
-              <div class="project-wrapper__text-btns">
-                <a
-                  href="https://mathutilitytools-4.streamlit.app/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  class="cta-btn cta-btn--hero cta-btn--projects"
-                  >See Live</a
-                >
-                <a href="https://github.com/Seetharamanrs/Math_utility_tools" target="_blank" class="cta-btn text-color-main"
-                  >Source Code</a
-                >
-              </div>
-            </div>
-
-            <div class="project-wrapper__image">
-              <a href="#" target="_blank" rel="noopener noreferrer">
-                <div class="thumbnail rounded">
-                  <img
-                    src="./assets/projects/math.png"
-                    class="img-fluid"
-                    alt="Project Image"
-                    width="1366"
-                    height="767"
-                  />
-                </div>
-              </a>
-            </div>
-          </article>
-          <!-- /END Project -->
-           <article class="row">
-            <div class="project-wrapper__text">
-              <h3 class="project-wrapper__text-title">Basic math utility Toolkit</h3>
-              <p class="project-wrapper__text-info">
-               Designed and implemented a modular, command-line Python application offering a suite of everyday tools using object-oriented programming. 
-               The toolkit includes a unit converter (temperature, weight, distance), a Caesar cipher encryption/decryption tool, and various mini-games like dice roller, number guessing, lottery simulator, and coin toss.
-               </p>
-               <p class="project-wrapper__text-info"> 
-                It also features a scientific calculator with trigonometric, logarithmic, and exponential functions, a matrix calculator (with NumPy integration) for addition, subtraction, and transposition, and a date utility to calculate age, birthday countdowns, and time differences. 
-                The project emphasizes modular class design, code reusability, and interactive user experience.
-              </p>
-               <div class="project-wrapper__tech">
-                <span>OOPs</span>
-                <span>Math</span>
-                <span>Random</span>
-
-              </div>
-              <div class="project-wrapper__text-btns">
-                <!-- <a
-                  href="#"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  class="cta-btn cta-btn--hero cta-btn--projects"
-                  >See Live</a
-                > -->
-                <a href="https://github.com/Seetharamanrs/Basic_math_utility" target="_blank" class="cta-btn text-color-main"
-                  >Source Code</a
-                >
-              </div>
-            </div>
-            
-
-            <div class="project-wrapper__image">
-              <a href="#" target="_blank" rel="noopener noreferrer">
-                <div class="thumbnail rounded">
-                  <img
-                    src="./assets/projects/basic.png"
-                    class="img-fluid"
-                    alt="Project Image"
-                    width="1366"
-                    height="767"
-                  />
-                </div>
-              </a>
-            </div>
-          </article>
-          <!-- /END Project -->
-            <!-- Each .row is a project -->
-          <article class="row">
-            <div class="project-wrapper__text">
-              <h3 class="project-wrapper__text-title">Schwa Identification</h3>
-              <p class="project-wrapper__text-info">
-          Collaborated with a client to implement an AI-based speech analysis pipeline focused on identifying schwa-related pronunciation challenges in ESOL learners.
-              </p>  
-          <p class="project-wrapper__text-info">
-             Processed recorded speech data to extract granular phonetic features such as frequency, duration, intensity, and spectral characteristics specific to the schwa sound. 
-             Shifted from word-level to phoneme-level feedback, allowing for more precise and personalised pronunciation insights. 
-             Used signal processing techniques to detect subtle deviations from standard British English pronunciation.
-              </p>
-              <p class="project-wrapper__text-info">
-                Designed the pipeline to be modular and scalable, enabling continuous algorithm refinement and easy extension to other phonetic targets.
-              </p>
-
-
-               <div class="project-wrapper__tech">
-                <span>Speech Processing</span>
-                <span>  Phonetics</span>
-                <span>Signal Analysis  </span>
-                <span> ESOL</span>
-                <span> AI Pipeline</span>
-                <span>Audio Feature Extraction</span>
-                <span>Math</span>
-                <span>NumPy</span>
-                <span>Librosa</span>
-                <span>Matplotlib</span>
-              </div>
-              <div class="project-wrapper__text-btns">
-                <!-- <a
-                  href="https://mathutilitytools-4.streamlit.app/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  class="cta-btn cta-btn--hero cta-btn--projects"
-                  >See Live</a
-                > -->
-                <a href="https://github.com/Seetharamanrs/projects/tree/main/Schwa%20Identification" target="_blank" class="cta-btn text-color-main"
-                  >Source Code</a
-                >
-              </div>
-            </div>
-
-            <div class="project-wrapper__image">
-              <a href="#" target="_blank" rel="noopener noreferrer">
-                <div class="thumbnail rounded">
-                  <img
-                    src="./assets/projects/schwa.jpg"
-                    class="img-fluid"
-                    alt="Project Image"
-                    width="1366"
-                    height="767"
-                  />
-                </div>
-              </a>
-            </div>
-          </article>
-          <!-- /END Project -->
-                     <!-- /END Project -->
-           <article class="row">
-            <div class="project-wrapper__text">
-              <h3 class="project-wrapper__text-title">Heart disease prediction</h3>
-              <p class="project-wrapper__text-info">
-               Implemented a machine learning prototype to predict individual heart disease risk using Python libraries such as scikit-learn, NumPy, Pandas, and Seaborn.
-                Applied Random Forest and K-Nearest Neighbors algorithms, gaining hands-on experience in model tuning and performance optimization. 
-               </p>
-               <p class="project-wrapper__text-info"> 
-                The project strengthened skills in data preprocessing, exploratory analysis, and predictive modeling, with a focus on health-related datasets and real-world applicability.
-              </p>
-               <div class="project-wrapper__tech">
-                <span>Python</span>
-                <span>Numpy</span>
-                <span>Pandas</span>
-                <span>Machine Learning</span>
-                <span>Health  Analysis</span>
-                <span>Model Evaluation</span>
-                <span>RandomForest</span>
-                <span>K-nearest Neighbors</span>
-
-
-
-              </div>
-              <div class="project-wrapper__text-btns">
-                <!-- <a
-                  href="#"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  class="cta-btn cta-btn--hero cta-btn--projects"
-                  >See Live</a
-                > -->
-                <a href="https://github.com/Seetharamanrs/Basic_math_utility" target="_blank" class="cta-btn text-color-main"
-                  >Source Code</a
-                >
-              </div>
-            </div>
-            
-
-            <div class="project-wrapper__image">
-              <a href="#" target="_blank" rel="noopener noreferrer">
-                <div class="thumbnail rounded">
-                  <img
-                    src="./assets/projects/heart.png"
-                    class="img-fluid"
-                    alt="Project Image"
-                    width="1366"
-                    height="767"
-                  />
-                </div>
-              </a>
-            </div>
-          </article>
-          <!-- /END Project -->
-        </div>
-      </div>
-    </section>
-    <!-- End Projects Section -->
-
-    <!-- Contact Section -->
-    <section id="contact">
-      <div class="container">
-        <h2 class="section-title">Contact</h2>
-        <div class="contact-wrapper">
-          <p class="contact-wrapper__text">Lets build together !</p>
-          <a href="mailto:rseetharaman293@gmail.com"
-          class="cta-btn cta-btn--resume">Mail me</a>
-        </div>
-      </div>
-    </section>
-    <!-- END Contact Section -->
-
-    <!-- Footer Section -->
-    <footer class="footer">
-      <div class="container">
-        <a href="#hero" class="back-to-top" aria-label="go back to top">
-          <i class="fa fa-angle-up fa-2x" aria-hidden="true"></i>
+      <!-- CONTACT CHIPS — visible immediately -->
+      <div class="hero-contact-bar">
+        <a href="tel:+917904694876" class="contact-chip">
+          <i class="fa fa-phone"></i> +91 79046 94876
         </a>
-        <div class="social-links">
-          <!-- <a
-            href="#!"
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="twitter"
-          >
-            <i class="fa-brands fa-twitter"></i>
-          </a> -->
-          <!-- <a
-            href="#!"
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="instagram"
-          >
-            <i class="fa-brands fa-instagram"></i>
-          </a> -->
-          <!-- <a
-            href="#!"
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="codepen"
-          >
-            <i class="fa-brands fa-codepen"></i>
-          </a> -->
-          <a
-            href="https://www.linkedin.com/in/seetharaman-r/"
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="linkedin"
-          >
-            <i class="fa-brands fa-linkedin"></i>
+        <a href="mailto:rseetharaman293@gmail.com" class="contact-chip">
+          <i class="fa fa-envelope"></i> rseetharaman293@gmail.com
+        </a>
+        <a href="https://www.linkedin.com/in/seetharaman-r/" target="_blank" class="contact-chip">
+          <i class="fab fa-linkedin"></i> linkedin.com/in/seetharaman-r
+        </a>
+        <a href="https://github.com/Seetharamanrs" target="_blank" class="contact-chip">
+          <i class="fab fa-github"></i> github.com/Seetharamanrs
+        </a>
+      </div>
+
+      <div class="hero-actions">
+        <a href="#projects" class="btn btn-primary"><i class="fa fa-code"></i> View Projects</a>
+        <a href="#contact" class="btn btn-ghost"><i class="fa fa-paper-plane"></i> Get in Touch</a>
+      </div>
+
+      <div class="hero-stats">
+        <div class="stat-item">
+          <div class="stat-num">10<span>+</span></div>
+          <div class="stat-label">Projects Built</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-num">2<span>x</span></div>
+          <div class="stat-label">AWS Certified</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-num">95<span>%</span></div>
+          <div class="stat-label">Model Accuracy</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-num">MSc<span>.</span></div>
+          <div class="stat-label">AI — Sheffield Hallam</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SKILLS -->
+  <section id="skills">
+    <div class="container">
+      <div class="section-label"><span>Technical Stack</span></div>
+      <h2 class="section-title">Skills & Technologies</h2>
+      <div class="skills-grid reveal">
+        <div class="skill-card">
+          <div class="skill-card-icon">🤖</div>
+          <div class="skill-card-title">Machine Learning & AI</div>
+          <div class="skill-tags">
+            <span class="skill-tag">Random Forest</span>
+            <span class="skill-tag">XGBoost</span>
+            <span class="skill-tag">SVM</span>
+            <span class="skill-tag">CNN</span>
+            <span class="skill-tag">RNN</span>
+            <span class="skill-tag">Ensemble Methods</span>
+            <span class="skill-tag">NLP</span>
+            <span class="skill-tag">LLMs</span>
+            <span class="skill-tag">Generative AI</span>
+          </div>
+        </div>
+        <div class="skill-card">
+          <div class="skill-card-icon">🐍</div>
+          <div class="skill-card-title">Programming & Frameworks</div>
+          <div class="skill-tags">
+            <span class="skill-tag">Python</span>
+            <span class="skill-tag">TensorFlow</span>
+            <span class="skill-tag">PyTorch</span>
+            <span class="skill-tag">Scikit-learn</span>
+            <span class="skill-tag">Keras</span>
+            <span class="skill-tag">Pandas</span>
+            <span class="skill-tag">NumPy</span>
+            <span class="skill-tag">OpenCV</span>
+          </div>
+        </div>
+        <div class="skill-card">
+          <div class="skill-card-icon">📊</div>
+          <div class="skill-card-title">Data & Analytics</div>
+          <div class="skill-tags">
+            <span class="skill-tag">Feature Engineering</span>
+            <span class="skill-tag">EDA</span>
+            <span class="skill-tag">Prophet</span>
+            <span class="skill-tag">ARIMA</span>
+            <span class="skill-tag">Seaborn</span>
+            <span class="skill-tag">Matplotlib</span>
+            <span class="skill-tag">SQL</span>
+            <span class="skill-tag">Statistical Analysis</span>
+          </div>
+        </div>
+        <div class="skill-card">
+          <div class="skill-card-icon">☁️</div>
+          <div class="skill-card-title">Cloud & Deployment</div>
+          <div class="skill-tags">
+            <span class="skill-tag">AWS (Certified)</span>
+            <span class="skill-tag">Streamlit</span>
+            <span class="skill-tag">REST APIs</span>
+            <span class="skill-tag">GitHub</span>
+            <span class="skill-tag">Google Colab</span>
+            <span class="skill-tag">SQLite</span>
+            <span class="skill-tag">Docker (familiar)</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CERTIFICATIONS -->
+  <section id="certifications">
+    <div class="container">
+      <div class="section-label"><span>Verified Credentials</span></div>
+      <h2 class="section-title">Certifications</h2>
+      <div class="cert-grid reveal">
+        <div class="cert-card">
+          <div class="cert-icon">☁️</div>
+          <div>
+            <div class="cert-title">AWS Certified AI Practitioner</div>
+            <div class="cert-issuer">Amazon Web Services</div>
+            <div class="cert-date">November 2025</div>
+          </div>
+        </div>
+        <div class="cert-card">
+          <div class="cert-icon">🏅</div>
+          <div>
+            <div class="cert-title">AWS Certified Cloud Practitioner</div>
+            <div class="cert-issuer">Amazon Web Services</div>
+            <div class="cert-date">August 2025</div>
+          </div>
+        </div>
+        <div class="cert-card">
+          <div class="cert-icon">🐍</div>
+          <div>
+            <div class="cert-title">Python for Data Science, AI & Development</div>
+            <div class="cert-issuer">IBM — Coursera</div>
+            <div class="cert-date">February 2025</div>
+          </div>
+        </div>
+        <div class="cert-card">
+          <div class="cert-icon">📡</div>
+          <div>
+            <div class="cert-title">Signal Processing On-ramp</div>
+            <div class="cert-issuer">MATLAB / MathWorks</div>
+            <div class="cert-date">March 2024</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROJECTS -->
+  <section id="projects">
+    <div class="container">
+      <div class="section-label"><span>Portfolio</span></div>
+      <h2 class="section-title">Featured Projects</h2>
+
+      <div class="projects-grid">
+
+        <!-- Depression Prediction -->
+        <div class="project-card reveal">
+          <div class="project-img-placeholder">🧠</div>
+          <div class="project-body">
+            <div class="project-category">Healthcare AI · ML Pipeline</div>
+            <div class="project-title">Depression Prediction System</div>
+            <p class="project-impact">Built a supervised ML pipeline to predict student depression across 5 severity classes from behavioral, academic, and social features.</p>
+            <div class="project-highlight">🏆 95.06% accuracy · AUC-ROC: 0.995 · Random Forest</div>
+            <div class="project-tech">
+              <span class="tech-tag">Random Forest</span>
+              <span class="tech-tag">SVM</span>
+              <span class="tech-tag">Neural Network</span>
+              <span class="tech-tag">Ensemble</span>
+              <span class="tech-tag">Scikit-learn</span>
+            </div>
+            <div class="project-links">
+              <a href="https://github.com/Seetharamanrs" target="_blank" class="proj-link"><i class="fab fa-github"></i> Code</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- AI Expense Analyzer -->
+        <div class="project-card reveal">
+          <div class="project-img-placeholder">💰</div>
+          <div class="project-body">
+            <div class="project-category">Generative AI · CLI Application</div>
+            <div class="project-title">AI Expense Analyzer</div>
+            <p class="project-impact">CLI application that ingests expense CSVs, stores in SQLite, runs SQL aggregations for category/monthly analysis, and uses an AI API for overspending detection and budget recommendations.</p>
+            <div class="project-highlight">📊 LLM-powered financial insights with SQL aggregations</div>
+            <div class="project-tech">
+              <span class="tech-tag">Python</span>
+              <span class="tech-tag">SQLite</span>
+              <span class="tech-tag">Pandas</span>
+              <span class="tech-tag">AI API</span>
+            </div>
+            <div class="project-links">
+              <a href="https://github.com/Seetharamanrs" target="_blank" class="proj-link"><i class="fab fa-github"></i> Code</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Brain Image Reconstruction -->
+        <div class="project-card reveal">
+          <div class="project-img-placeholder">🔬</div>
+          <div class="project-body">
+            <div class="project-category">Deep Learning · Neuroscience</div>
+            <div class="project-title">Brain-to-Image Reconstruction</div>
+            <p class="project-impact">Applied deep learning autoencoders (PyTorch) to reconstruct images directly from neural activity data — mapping brain signals into visual image space.</p>
+            <div class="project-highlight">🧬 Neural signals → image reconstruction via autoencoders</div>
+            <div class="project-tech">
+              <span class="tech-tag">PyTorch</span>
+              <span class="tech-tag">Autoencoders</span>
+              <span class="tech-tag">Computer Vision</span>
+              <span class="tech-tag">Signal Processing</span>
+            </div>
+            <div class="project-links">
+              <a href="https://github.com/Seetharamanrs" target="_blank" class="proj-link"><i class="fab fa-github"></i> Code</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- SuperStore Dashboard -->
+        <div class="project-card reveal">
+          <div class="project-img-placeholder">📈</div>
+          <div class="project-body">
+            <div class="project-category">Analytics · Forecasting</div>
+            <div class="project-title">SuperStore Sales Dashboard & Forecasting</div>
+            <p class="project-impact">Interactive analytics dashboard with Prophet & ARIMA forecasting, real-time KPIs and regional filters. Reduced load time by 40× using SQL-backed caching.</p>
+            <div class="project-highlight">⚡ 0.40s → 0.01s load time with SQL caching</div>
+            <div class="project-tech">
+              <span class="tech-tag">Streamlit</span>
+              <span class="tech-tag">Prophet</span>
+              <span class="tech-tag">ARIMA</span>
+              <span class="tech-tag">SQL</span>
+              <span class="tech-tag">Pandas</span>
+            </div>
+            <div class="project-links">
+              <a href="https://github.com/Seetharamanrs/SuperStore-sales-dashboard" target="_blank" class="proj-link"><i class="fab fa-github"></i> Code</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Handwritten Digit Recognition -->
+        <div class="project-card reveal">
+          <div class="project-img-placeholder">✍️</div>
+          <div class="project-body">
+            <div class="project-category">Computer Vision · Deployment</div>
+            <div class="project-title">Handwritten Digit Recognition</div>
+            <p class="project-impact">End-to-end image classification pipeline deployed as a Streamlit app with real-time inference. Validated sub-millisecond latency with full probability output for transparency.</p>
+            <div class="project-highlight">⚡ &lt;1ms real-time inference · Streamlit deployed</div>
+            <div class="project-tech">
+              <span class="tech-tag">CNN</span>
+              <span class="tech-tag">TensorFlow</span>
+              <span class="tech-tag">Streamlit</span>
+              <span class="tech-tag">OpenCV</span>
+            </div>
+            <div class="project-links">
+              <a href="https://github.com/Seetharamanrs" target="_blank" class="proj-link"><i class="fab fa-github"></i> Code</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- IPL Analysis -->
+        <div class="project-card reveal">
+          <div class="project-img-placeholder">🏏</div>
+          <div class="project-body">
+            <div class="project-category">Data Analysis · Sports Analytics</div>
+            <div class="project-title">IPL 2025 Analysis Dashboard</div>
+            <p class="project-impact">Analyzed 17,000+ ball-by-ball deliveries for player performance, team stats, and tournament trends. Live Streamlit app available.</p>
+            <div class="project-highlight">🏏 17,000+ deliveries analysed · Live app deployed</div>
+            <div class="project-tech">
+              <span class="tech-tag">Pandas</span>
+              <span class="tech-tag">Seaborn</span>
+              <span class="tech-tag">Streamlit</span>
+              <span class="tech-tag">Matplotlib</span>
+            </div>
+            <div class="project-links">
+              <a href="https://ipl2025analysis1.streamlit.app/" target="_blank" class="proj-link primary"><i class="fa fa-external-link-alt"></i> Live</a>
+              <a href="https://github.com/Seetharamanrs/ipl_2025_analysis" target="_blank" class="proj-link"><i class="fab fa-github"></i> Code</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Meal Recommender -->
+        <div class="project-card reveal">
+          <div class="project-img-placeholder">🍽️</div>
+          <div class="project-body">
+            <div class="project-category">LLM · LangChain · Streamlit</div>
+            <div class="project-title">AI Meal Recommender</div>
+            <p class="project-impact">AI-powered meal planner using web scraping + LangChain Pandas Agent (Ollama Gemma 3B). Full data pipeline with dynamic cook-time filtering and daily meal plan generation.</p>
+            <div class="project-highlight">🤖 60% reduction in decision fatigue</div>
+            <div class="project-tech">
+              <span class="tech-tag">Streamlit</span>
+              <span class="tech-tag">LangChain</span>
+              <span class="tech-tag">Ollama (Gemma3)</span>
+              <span class="tech-tag">BeautifulSoup</span>
+            </div>
+            <div class="project-links">
+              <a href="https://github.com/Seetharamanrs/Meal_recommender" target="_blank" class="proj-link"><i class="fab fa-github"></i> Code</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Schwa Identification -->
+        <div class="project-card reveal">
+          <div class="project-img-placeholder">🎙️</div>
+          <div class="project-body">
+            <div class="project-category">Speech AI · NLP · Client Project</div>
+            <div class="project-title">Schwa Identification (ESOL)</div>
+            <p class="project-impact">Client-commissioned AI speech pipeline to identify schwa pronunciation errors in ESOL learners. Shifted from word-level to phoneme-level feedback for more precise insights.</p>
+            <div class="project-highlight">🎯 Phoneme-level precision · Real client deployment</div>
+            <div class="project-tech">
+              <span class="tech-tag">Librosa</span>
+              <span class="tech-tag">NumPy</span>
+              <span class="tech-tag">Signal Processing</span>
+              <span class="tech-tag">Matplotlib</span>
+            </div>
+            <div class="project-links">
+              <a href="https://github.com/Seetharamanrs/projects/tree/main/Schwa%20Identification" target="_blank" class="proj-link"><i class="fab fa-github"></i> Code</a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- EDUCATION -->
+  <section id="education">
+    <div class="container">
+      <div class="section-label"><span>Academic Background</span></div>
+      <h2 class="section-title">Education</h2>
+      <div class="edu-timeline reveal">
+        <div class="edu-item">
+          <div class="edu-degree">M.Sc. Artificial Intelligence — Merit (2:1)</div>
+          <div class="edu-school">Sheffield Hallam University · Sheffield, United Kingdom</div>
+          <div class="edu-meta">2023 – 2024</div>
+        </div>
+        <div class="edu-item">
+          <div class="edu-degree">B.E. Electronics and Communication Engineering — First Class Honors</div>
+          <div class="edu-school">Anna University · Chennai, India</div>
+          <div class="edu-meta">2018 – 2022</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact">
+    <div class="container">
+      <div class="contact-inner">
+        <h2 class="contact-heading">Let's Build<br><span>Something Great</span></h2>
+        <p class="contact-sub">Open to AI/ML Engineer, Data Scientist, and Junior ML roles. Available immediately. Willing to relocate anywhere.</p>
+        <div class="contact-links">
+          <a href="tel:+917904694876" class="contact-link">
+            <i class="fa fa-phone"></i> +91 79046 94876
           </a>
-          <a
-            href="https://github.com/Seetharamanrs"
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="github"
-          >
-            <i class="fa-brands fa-github"></i>
+          <a href="mailto:rseetharaman293@gmail.com" class="contact-link">
+            <i class="fa fa-envelope"></i> rseetharaman293@gmail.com
+          </a>
+          <a href="https://www.linkedin.com/in/seetharaman-r/" target="_blank" class="contact-link">
+            <i class="fab fa-linkedin"></i> LinkedIn Profile
+          </a>
+          <a href="https://github.com/Seetharamanrs" target="_blank" class="contact-link">
+            <i class="fab fa-github"></i> GitHub Portfolio
           </a>
         </div>
-        <hr />
-        <p class="footer__text">
-          <br />Made with &hearts;
-          &copy; <span id="year"></span>
-        </p>
+        <a href="mailto:rseetharaman293@gmail.com" class="btn btn-primary" style="font-size:0.9rem; padding: 1rem 2.5rem;">
+          <i class="fa fa-envelope"></i> Send Me an Email
+        </a>
       </div>
-    </footer>
-    <!-- END Footer Section -->
+    </div>
+  </section>
 
-    <script>
-      document.getElementById("year").textContent = new Date().getFullYear()
-    </script>
-    <script src="./javascript/vanilla-tilt.min.js"></script>
-    <script type="text/javascript" src="./javascript/valtilt.js"></script>
-  </body>
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-logo">
+      <span>SR</span> · Seetharaman Radhakrishnan · AI/ML Engineer
+    </div>
+    <div class="footer-social">
+      <a href="https://www.linkedin.com/in/seetharaman-r/" target="_blank" aria-label="LinkedIn">
+        <i class="fab fa-linkedin"></i>
+      </a>
+      <a href="https://github.com/Seetharamanrs" target="_blank" aria-label="GitHub">
+        <i class="fab fa-github"></i>
+      </a>
+      <a href="mailto:rseetharaman293@gmail.com" aria-label="Email">
+        <i class="fa fa-envelope"></i>
+      </a>
+    </div>
+  </footer>
+
+  <script>
+    // Scroll reveal
+    const revealEls = document.querySelectorAll('.reveal');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          e.target.classList.add('visible');
+        }
+      });
+    }, { threshold: 0.1 });
+    revealEls.forEach(el => observer.observe(el));
+  </script>
+
+</body>
 </html>
