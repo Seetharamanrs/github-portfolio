@@ -7,7 +7,7 @@
   <meta name="description" content="AI/ML Engineer, 2x AWS Certified, MSc Artificial Intelligence — Sheffield Hallam University" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" crossorigin="anonymous" />
   <style>
     :root {
@@ -20,9 +20,9 @@
       --text: #e8e8f0;
       --muted: #7070a0;
       --heading: #ffffff;
-      --mono: 'Space Mono', monospace;
-      --sans: 'DM Sans', sans-serif;
-      --display: 'Syne', sans-serif;
+      --mono: 'IBM Plex Mono', monospace;
+      --sans: 'Plus Jakarta Sans', sans-serif;
+      --display: 'IBM Plex Mono', sans-serif;
     }
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     html { scroll-behavior: smooth; }
@@ -33,7 +33,7 @@
       pointer-events: none; z-index: 999; opacity: 0.4;
     }
     a { color: inherit; text-decoration: none; }
-
+ 
     /* NAV */
     nav {
       position: fixed; top: 0; left: 0; right: 0; z-index: 100;
@@ -631,7 +631,7 @@
       entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
     }, { threshold: 0.08 });
     document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
-
+    
     // Hamburger / drawer
     const hamburger = document.getElementById('hamburger');
     const navDrawer = document.getElementById('navDrawer');
@@ -645,7 +645,7 @@
       hamburger.classList.remove('open');
       document.body.style.overflow = '';
     }
-
+      
     // // Resume dropdown
     // const resumeBtn = document.getElementById('resumeBtn');
     // const resumeDropdown = document.getElementById('resumeDropdown');
